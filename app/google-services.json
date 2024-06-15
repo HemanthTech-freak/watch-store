@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "79841463915",
+    "project_id": "watch-store-1bc3d",
+    "storage_bucket": "watch-store-1bc3d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:79841463915:android:6e9b366b3d7185cee4ab2e",
+        "android_client_info": {
+          "package_name": "com.cherry.watch_store"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdd0TWpWfvZ0-4voVys9xW2luuAJ7sNG0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
