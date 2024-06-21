@@ -1,5 +1,6 @@
 package Adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.cherry.watch_store.DetailActivity
 import com.cherry.watch_store.Product
 import com.cherry.watch_store.R
 
@@ -17,7 +19,16 @@ class ProductAdapter(private val onClick:(Product) -> Unit) : ListAdapter<Produc
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.product, parent, false)
-        return ProductViewHolder(view, onClick)
+        return ProductViewHolder(view) { product ->
+            val context = parent.context
+            val intent = Intent(context, DetailActivity::class.java).apply {
+                putExtra("name", product.name)
+                putExtra("description", product.description)
+                putExtra("price", product.price)
+                putExtra("imageUrl", product.imageUrl)
+            }
+            context.startActivity(intent)
+        }
     }
 
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
