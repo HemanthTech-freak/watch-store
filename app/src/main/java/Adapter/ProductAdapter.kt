@@ -21,6 +21,7 @@ class ProductAdapter(private val onClick:(Product) -> Unit) : ListAdapter<Produc
         val view = LayoutInflater.from(parent.context).inflate(R.layout.product, parent, false)
         return ProductViewHolder(view) { product ->
             val context = parent.context
+            //intent with data for products
             val intent = Intent(context, DetailActivity::class.java).apply {
                 putExtra("name", product.name)
                 putExtra("description", product.description)
@@ -31,10 +32,12 @@ class ProductAdapter(private val onClick:(Product) -> Unit) : ListAdapter<Produc
         }
     }
 
+    //On bind view holder to bind the products
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
         holder.bind(getItem(position))
     }
 
+    //Product view holder to display products on view
     class ProductViewHolder(itemView: View, val onClick: (Product) -> Unit) : RecyclerView.ViewHolder(itemView) {
         private val productName: TextView = itemView.findViewById(R.id.productName)
         private val productPrice: TextView = itemView.findViewById(R.id.productPrice)
@@ -43,14 +46,23 @@ class ProductAdapter(private val onClick:(Product) -> Unit) : ListAdapter<Produc
         private val knowMoreBtn : Button = itemView.findViewById(R.id.knowMoreBtn)
         private var currentProduct: Product? = null
 
+        //Click listeners for both image click and button click
         init {
             itemView.setOnClickListener {
                 currentProduct?.let {
                     onClick(it)
                 }
             }
+
+            knowMoreBtn.setOnClickListener {
+                currentProduct?.let {
+                    onClick(it)
+                }
+            }
+
         }
 
+        //Function to bind the data of products
         fun bind(product: Product) {
             currentProduct = product
             productName.text = product.name
@@ -60,6 +72,7 @@ class ProductAdapter(private val onClick:(Product) -> Unit) : ListAdapter<Produc
         }
     }
 
+    //callback functions to compare the old item and the new items
     companion object DiffCallback : DiffUtil.ItemCallback<Product>() {
         override fun areItemsTheSame(oldItem: Product, newItem: Product): Boolean {
             return oldItem.id == newItem.id

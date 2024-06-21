@@ -2,23 +2,25 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="16dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp">
 
         <TextView
             android:id="@+id/textView1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Personal Information"
+            android:text="Check Out"
+            android:textAlignment="center"
+            android:textColor="@color/primaryTextColor"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -26,23 +28,20 @@
             android:id="@+id/firstNameCheckout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:layout_marginTop="12dp"
-            android:layout_marginEnd="16dp"
+            android:backgroundTint="@color/primaryColor"
             android:hint="First Name"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView1" />
 
-
         <EditText
             android:id="@+id/lastNameCheckout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:layout_marginTop="12dp"
-            android:layout_marginEnd="16dp"
+            android:backgroundTint="@color/primaryColor"
             android:hint="Last Name"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -53,9 +52,8 @@
             android:id="@+id/addressCheckout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:layout_marginTop="12dp"
-            android:layout_marginEnd="16dp"
+            android:backgroundTint="@color/primaryColor"
             android:hint="Address"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -66,13 +64,11 @@
             android:id="@+id/postalCodeCheckout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:layout_marginTop="12dp"
-            android:layout_marginEnd="16dp"
+            android:backgroundTint="@color/primaryColor"
             android:hint="Postal Code"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/addressCheckout" />
 
@@ -80,9 +76,8 @@
             android:id="@+id/emailCheckout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:layout_marginTop="12dp"
-            android:layout_marginEnd="16dp"
+            android:backgroundTint="@color/primaryColor"
             android:hint="Email Address"
             android:inputType="textEmailAddress"
             android:textSize="20sp"
@@ -94,9 +89,8 @@
             android:id="@+id/phoneCheckout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:layout_marginTop="12dp"
-            android:layout_marginEnd="16dp"
+            android:backgroundTint="@color/primaryColor"
             android:hint="Phone Number"
             android:inputType="phone"
             android:textSize="20sp"
@@ -110,10 +104,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="36dp"
             android:text="Payment Information"
+            android:textColor="@color/primaryTextColor"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/phoneCheckout" />
 
@@ -121,12 +115,10 @@
             android:id="@+id/paymentOptions"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:layout_marginTop="12dp"
-            android:layout_marginEnd="16dp"
+            android:backgroundTint="@color/primaryColor"
             android:padding="15sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
@@ -134,9 +126,8 @@
             android:id="@+id/cardNumberCheckout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:layout_marginTop="12dp"
-            android:layout_marginEnd="16dp"
+            android:backgroundTint="@color/primaryColor"
             android:hint="Credit Card Number"
             android:inputType="number"
             android:maxLength="19"
@@ -150,9 +141,8 @@
             android:id="@+id/cardNameCheckout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:layout_marginTop="12dp"
-            android:layout_marginEnd="16dp"
+            android:backgroundTint="@color/primaryColor"
             android:hint="Cardholder Name"
             android:textSize="20sp"
             android:visibility="invisible"
@@ -164,9 +154,7 @@
             android:id="@+id/expiryDateCvvLayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:layout_marginTop="12dp"
-            android:layout_marginEnd="16dp"
             android:orientation="horizontal"
             android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
@@ -178,6 +166,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:backgroundTint="@color/primaryColor"
                 android:hint="Expiry Date (MM/YY)"
                 android:inputType="number"
                 android:maxLength="5"
@@ -189,11 +178,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_weight="1"
+                android:backgroundTint="@color/primaryColor"
                 android:hint="CVV"
                 android:inputType="numberPassword"
                 android:maxLength="3"
                 android:textSize="20sp" />
-
         </LinearLayout>
 
         <Button
@@ -201,16 +190,13 @@
             style="@style/Widget.Material3.Button.TonalButton.Icon"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="26dp"
             android:layout_marginTop="22dp"
-            android:layout_marginEnd="26dp"
-            android:layout_marginBottom="22dp"
+            android:backgroundTint="@color/primaryColor"
             android:text="Submit Order"
+            android:textColor="@color/primaryTextColor"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/expiryDateCvvLayout" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

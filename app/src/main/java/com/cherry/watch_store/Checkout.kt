@@ -21,6 +21,7 @@ import java.util.*
 
 class Checkout : AppCompatActivity() {
 
+    //variable initialisation
     private lateinit var postalCodeEditText: EditText
     private lateinit var emailEditText: EditText
     private lateinit var phoneEditText: EditText
@@ -47,8 +48,8 @@ class Checkout : AppCompatActivity() {
             insets
         }
 
+        //get instance from the firebase for the products object
         database = FirebaseDatabase.getInstance().getReference("products")
-
 
         postalCodeEditText = findViewById(R.id.postalCodeCheckout)
         emailEditText = findViewById(R.id.emailCheckout)
@@ -248,24 +249,12 @@ class Checkout : AppCompatActivity() {
         return valid
     }
 
+    //Submit button logic intent to products page
     private fun setupSubmitButton() {
         val submitButton: Button = findViewById(R.id.checkoutSubmit)
         submitButton.setOnClickListener {
             if (isValid() && hasError()) {
-                val databaseReference = FirebaseDatabase.getInstance().getReference("products")
-                databaseReference.addListenerForSingleValueEvent(object : ValueEventListener {
-                    override fun onDataChange(dataSnapshot: DataSnapshot) {
-                        for (product in dataSnapshot.children) {
-                            val products = product.getValue(Product::class.java)
-                            products?.let {
-                                databaseReference.child(it.name).child("quantity").setValue(0)
-                            }
-                        }
-                    }
-
-                    override fun onCancelled(error: DatabaseError) {}
-                })
-                startActivity(Intent(this, MainActivity::class.java))
+                startActivity(Intent(this, ConfirmationActivity::class.java))
                 finish()
             } else {
                 Toast.makeText(this, "All fields are required", Toast.LENGTH_SHORT).show()
@@ -292,6 +281,7 @@ class Checkout : AppCompatActivity() {
                 !TextUtils.isEmpty(expiryDate) && !TextUtils.isEmpty(cvv)
     }
 
+    //Expiry date information validation
     private fun isValidExpiryDate(expiryDate: String): Boolean {
         if (!expiryDate.matches(Regex("\\d{4}"))) {
             return false

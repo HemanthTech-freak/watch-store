@@ -23,16 +23,19 @@ class DetailActivity : AppCompatActivity() {
         val productImage: ImageView = findViewById(R.id.imageView)
         val checkoutButton: Button = findViewById(R.id.productEachAdd)
 
+        //Extract the intent data from parent
         val name = intent.getStringExtra("name")
         val description = intent.getStringExtra("description")
         val price = intent.getDoubleExtra("price", 0.0)
         val imageUrl = intent.getStringExtra("imageUrl")
 
+        //Map the data of products to ui
         productName.text = name
         productDescription.text = description
         productPrice.text = "$${price}"
         Glide.with(this).load(imageUrl).into(productImage)
 
+        //on click listener for checkout button
         checkoutButton.setOnClickListener {
             val checkoutIntent = Intent(this, Checkout::class.java).apply {
                 putExtra("name", name)
